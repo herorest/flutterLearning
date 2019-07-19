@@ -65,6 +65,10 @@ class MyHomeApp extends StatefulWidget{
   _MyAppState createState() => new _MyAppState();
 }
 
+const textStyle = const TextStyle(
+  fontFamily: 'impact.ttf'
+);
+
 class _MyAppState extends State<MyHomeApp>{
   int _counter;
 
@@ -106,7 +110,8 @@ class _MyAppState extends State<MyHomeApp>{
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       height:1.2,
-                      color: Colors.blue
+                      color: Colors.blue,
+                      fontFamily: 'impact'
                     ),
                   ),
                 ]
@@ -114,7 +119,8 @@ class _MyAppState extends State<MyHomeApp>{
             ),
             
             new Text(
-              new WordPair.random().toString() * 4
+              new WordPair.random().toString() * 4,
+              style: textStyle
             ),
             new Text.rich(
               TextSpan(
