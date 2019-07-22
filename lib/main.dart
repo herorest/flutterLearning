@@ -144,15 +144,38 @@ class _MyAppState extends State<MyHomeApp>{
             //     )
             //   ),
             // ),
-            new Image.asset('assets/screenshot.png'),
             new Text(
               '$_counter'
             ),
+            new RaisedButton(
+              child: new Text('normal'),
+              onPressed: () => {},
+            ),
             new FlatButton(
               child: new Text("goto textPanel"),
+              color: Colors.blue,
+              highlightColor: Colors.blue[700],
+              colorBrightness: Brightness.dark,
+              splashColor: Colors.grey,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               onPressed: () => {
-                Navigator.of(context).pushNamed('textPage', arguments: '1')
+                // Navigator.of(context).pushNamed('textPage', arguments: '1')
               },
+            ),
+            new OutlineButton(
+              child: new Text('hhhello'),
+              onPressed: () => {},
+            ),
+            new IconButton(
+              icon: Icon(Icons.access_alarm),
+              onPressed: () => {},
+            ),
+            new Column(
+              children: <Widget>[
+                new Image.asset('assets/chao.jpg', width:120),
+                new Image.network('https://js1.epy.wpscdn.cn/security/hot03.jpg', width:150),
+                Icon(Icons.ac_unit, color:Colors.green)
+              ],
             )
           ],
         )
