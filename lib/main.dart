@@ -37,12 +37,13 @@ class _SwitchAndCheckBoxTestRouteState extends State<SwitchAndCheckBoxTestRoute>
   Widget build(BuildContext context){
     ThemeData themeData = Theme.of(context);
     return Theme(
-      data: ThemeData(
-        primarySwatch: Colors.teal,
+      data: Theme.of(context).copyWith(
+        // primarySwatch: Colors.teal,
         iconTheme: IconThemeData(color: Colors.teal),
+        hintColor: Colors.black,
         inputDecorationTheme: InputDecorationTheme(
-          labelStyle: TextStyle(color: Colors.grey),
-          hintStyle: TextStyle(color: Colors.red, fontSize:14)
+          labelStyle: TextStyle(color: Colors.grey),    // 定义label字体样式
+          hintStyle: TextStyle(color: Colors.red, fontSize:14)  //定义提示文本样式
         ),
       ), 
       child: new Scaffold(
@@ -52,14 +53,20 @@ class _SwitchAndCheckBoxTestRouteState extends State<SwitchAndCheckBoxTestRoute>
         body: new Center(
           child:Column(
             children: <Widget>[
-              TextField(
-                autofocus: true,
-                decoration: InputDecoration(
-                  labelText: '用户名',
-                  hintText: '手机号/邮箱',
-                  prefixIcon: Icon(Icons.person),
+              Container(
+                child: TextField(
+                  autofocus: true,
+                  decoration: InputDecoration(
+                    labelText: '用户名',
+                    hintText: '手机号/邮箱',
+                    prefixIcon: Icon(Icons.person),
+                    border: InputBorder.none
+                  ),
+                  controller: _unameController,
                 ),
-                controller: _unameController,
+                decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: Colors.grey[200], width: 1.0))
+                ),
               ),
               TextField(
                 autofocus: true,
