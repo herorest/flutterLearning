@@ -21,82 +21,47 @@ class SwitchAndCheckBoxTestRoute extends StatefulWidget{
 }
 
 class _SwitchAndCheckBoxTestRouteState extends State<SwitchAndCheckBoxTestRoute>{
-  bool _switchSelected = true;
-  bool _switchCheckboxSelected = true;
-  // 使用controller保存输入框内容
-  TextEditingController _unameController = new TextEditingController();
-  
-  @override
-  void initState() {
-    _unameController.addListener((){
-      print(_unameController.text);
-    });
-  }
 
   @override
   Widget build(BuildContext context){
-    ThemeData themeData = Theme.of(context);
-    return Theme(
-      data: Theme.of(context).copyWith(
-        // primarySwatch: Colors.teal,
-        iconTheme: IconThemeData(color: Colors.teal),
-        hintColor: Colors.black,
-        inputDecorationTheme: InputDecorationTheme(
-          labelStyle: TextStyle(color: Colors.grey),    // 定义label字体样式
-          hintStyle: TextStyle(color: Colors.red, fontSize:14)  //定义提示文本样式
-        ),
-      ), 
-      child: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('form')
-        ),
-        body: new Center(
-          child:Column(
-            children: <Widget>[
-              Container(
-                child: TextField(
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    labelText: '用户名',
-                    hintText: '手机号/邮箱',
-                    prefixIcon: Icon(Icons.person),
-                    border: InputBorder.none
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('form')
+      ),
+      body: 
+        Column(
+          children: <Widget>[
+           SizedBox(
+             width:1080,
+             child:Flex(
+              direction: Axis.horizontal,
+              children: <Widget>[
+                Expanded(
+                  flex: 3,
+                  child: Container(
+                    color:Colors.green,
+                    height:30
                   ),
-                  controller: _unameController,
                 ),
-                decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey[200], width: 1.0))
+                Spacer(
+                  flex:1
                 ),
-              ),
-              TextField(
-                autofocus: true,
-                decoration: InputDecoration(
-                  labelText: '密码',
-                  hintText: '登录密码',
-                  prefixIcon: Icon(Icons.lock),
-                ),
-                obscureText: true,
-              ),
-              Switch(
-                value: _switchSelected,
-                onChanged: (value) {
-                  setState((){
-                    _switchSelected = value;
-                  });
-                },
-              ),
-              Checkbox(
-                value: _switchCheckboxSelected,
-                onChanged: (value) {
-                  setState((){
-                    _switchCheckboxSelected = value;
-                  });
-                },
-              )
-            ],
-          )
+                Expanded(
+                  flex: 6,
+                  child: Container(
+                    color:Colors.red,
+                    height:30
+                  ),
+                )
+              ],
+
+            )
+           )
+            
+            
+          ],
         )
-      )
+
     );
   }
 }
