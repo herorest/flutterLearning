@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -46,17 +43,17 @@ class _SwitchAndCheckBoxTestRouteState extends State<SwitchAndCheckBoxTestRoute>
                   child: Stack(
                     alignment: Alignment.center,
                     children: <Widget>[
-                      
-                      DecoratedBox(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(colors: [Colors.red, Colors.orange[700]]),
-                          borderRadius: BorderRadius.circular(3)
+                      Container(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                          child:Text('helloworld')
                         ),
-                        child: FlatButton(
-                          child: Text('normal'),
-                          onPressed: (){},
-                        ),
-                        
+                        color: Colors.red,
+                      ),
+                      Positioned(
+                        left:18,
+                        top:20,
+                        child: Text('i am jack')
                       )
                     ],
                   )
